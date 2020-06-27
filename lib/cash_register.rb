@@ -54,7 +54,7 @@ class CashRegister
   end
   
   def void_last_transaction
-    @items.slice(@last_item)
+    @items.delete(@last_item)
     @total = @total - @last_price
     @last_quantity -= 1
     if @last_quantity >= 1
