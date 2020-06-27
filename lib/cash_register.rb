@@ -58,7 +58,7 @@ class CashRegister
     @total = @total - @last_price
     @last_quantity -= 1
     if @last_quantity >= 1
-      until @last_quantity = 0
+      until @last_quantity == 0
         @total = @total - @last_price
         @last_quantity -= 1
       end
