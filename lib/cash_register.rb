@@ -56,9 +56,14 @@ class CashRegister
   def void_last_transaction
     @items.splice(@last_item)
     @total = @total - @last_price
-    if @last_quantity > 1
-      
-      @total = @total - @last_price
+    @last_quantity -= 1
+    if @last_quantity >= 1
+      until @last_quantity = 0
+        @total = @total - @last_price
+        @last_quantity -= 1
+      end
+    end
+    
     
   
 end
