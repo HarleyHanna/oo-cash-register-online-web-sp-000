@@ -53,6 +53,7 @@ class CashRegister
   end
   
   def void_last_transaction
-    @last_item
+    @items.splice(@last_item)
+    @total = @total - @last_price
   
 end
