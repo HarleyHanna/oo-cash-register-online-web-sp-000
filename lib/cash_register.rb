@@ -1,6 +1,6 @@
 class CashRegister
   
-  attr_accessor = :discount, :last_item, :last_price
+  attr_accessor = :discount, :last_item, :last_price, :last_quantity
   
   
   def initialize(discount = 0)
@@ -26,6 +26,7 @@ class CashRegister
   def add_item(title, price, quantity = 1)
     @last_item = title
     @last_price = price
+    @last_quantity = quantity
     @total += price * quantity
     @items << title
     if quantity > 1
@@ -55,5 +56,9 @@ class CashRegister
   def void_last_transaction
     @items.splice(@last_item)
     @total = @total - @last_price
+    if @last_quantity > 1
+      
+      @total = @total - @last_price
+    
   
 end
